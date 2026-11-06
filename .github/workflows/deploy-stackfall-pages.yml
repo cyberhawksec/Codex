@@ -1,0 +1,37 @@
+name: Deploy Stackfall to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Codex Projects/Stackfall/Web Version/**"
+      - ".github/workflows/deploy-stackfall-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "stackfall-pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload game
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "Codex Projects/Stackfall/Web Version"
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
