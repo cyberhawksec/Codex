@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#140f28" />
+  <meta name="description" content="Stackfall: a fruit-powered falling-block puzzle." />
+  <title>Stackfall — Fruit Drop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-fruit">🍓</span><span>STACKFALL</span></div>
+      <div class="level-chip"><span>LEVEL</span><strong id="level">1</strong><span>/ 10</span></div>
+      <button class="sound-button" id="soundButton" aria-label="Toggle sound">♬</button>
+    </header>
+
+    <section class="game-layout" aria-label="Stackfall game">
+      <aside class="side-card stats-card">
+        <p class="eyebrow">CURRENT SCORE</p>
+        <p class="score" id="score">000000</p>
+        <div class="stat-rule"></div>
+        <div class="stat-line"><span>LINES</span><strong id="lines">0</strong></div>
+        <div class="stat-line"><span>BEST</span><strong id="best">0</strong></div>
+        <p class="level-copy" id="levelCopy">Fresh fruit. Easy pace.</p>
+      </aside>
+
+      <div class="play-area">
+        <div class="board-frame">
+          <div class="shine shine-one"></div><div class="shine shine-two"></div>
+          <div id="board" class="board" role="grid" aria-label="Game board"></div>
+          <div class="game-overlay" id="gameOverlay">
+            <div class="overlay-inner">
+              <span class="overlay-fruit">🍒</span>
+              <h1 id="overlayTitle">STACKFALL</h1>
+              <p id="overlayText">Stack the fruit. Clear the rows.</p>
+              <button class="primary-button" id="startButton">PLAY NOW <span>→</span></button>
+              <p class="keys-hint">Arrow keys or on-screen controls</p>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-stats"><span>SCORE <b id="mobileScore">000000</b></span><span>LINES <b id="mobileLines">0</b></span></div>
+        <div class="controls" aria-label="Game controls">
+          <button id="rotateButton" aria-label="Rotate piece">↻</button>
+          <button id="leftButton" aria-label="Move left">←</button>
+          <button id="downButton" aria-label="Soft drop">↓</button>
+          <button id="rightButton" aria-label="Move right">→</button>
+          <button id="dropButton" class="drop-button" aria-label="Hard drop">DROP</button>
+        </div>
+      </div>
+
+      <aside class="side-card next-card">
+        <p class="eyebrow">NEXT FRUIT</p>
+        <div class="next-preview" id="nextPreview"></div>
+        <div class="stat-rule"></div>
+        <p class="eyebrow howto">HOW TO PLAY</p>
+        <p class="instructions">Move, rotate, and drop the fruit clusters. Fill a row to make it pop!</p>
+      </aside>
+    </section>
+
+    <footer><span>FRUIT DROP PUZZLE</span><span class="dot">•</span><span>10 JUICY LEVELS</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
